@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="ToDo.js">
+
+    </script>
+    <style>
+        #st {
+            width: 10cm;
+
+        }
+
+        #bu {
+
+            align-items: flex-start;
+            color: darkred;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="jumbotron">
+
+        <div id='st' style="background:cornsilk" class="container">
+            <h2>ToDo-List</h2>
+            <div>
+                <input type="text" style="background:cornsilk" placeholder="Add task here" id='task'>
+                <input type="button" value="Add A New Task" onclick="task()">
+
+            </div>
+
+
+            <ul style="border-style: solid">
+                <li>Sample List</li>
+                <div id='add'>
+
+                </div>
+
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
