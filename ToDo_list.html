@@ -3,13 +3,16 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <script src="ToDo.js">
+    
+    <!-- <script src="ToDo.js">
 
-    </script>
+    </script> -->
     <style>
+        #bu3
+        {
+            background:cornsilk;
+            border: none;
+        }
         #st {
             width: 10cm;
 
@@ -37,21 +40,18 @@
         <div id='st' style="background:cornsilk" class="container">
             <h2>ToDo-List</h2>
             <div>
-                <input type="text" style="background:cornsilk" placeholder="Add task here" id='task'>
-                <input type="button" value="Add A New Task" onclick="task()">
+                <input type="text"  style="background:cornsilk;  " placeholder="Add task here" id='input'>
+                <!-- <input type="button" value="Add" st onclick="task()"> -->
 
             </div>
-
-
-            <ul style="border-style: solid">
-                <li >Sample List</li>
-                <div id='add'>
-
-                </div>
-
+            <ul id=list>
+            
             </ul>
+
+            
         </div>
     </div>
+    <script src="ToDo.js"> </script>
 </body>
 
 </html>
