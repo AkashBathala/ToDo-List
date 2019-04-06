@@ -76,7 +76,7 @@ const input = document.getElementById('input');
 const LINE_THROUGH = "del";
 const color = "chartreuse";
 let LIST, id;
-let defcolor="blue";
+let defcolor = "blue";
 let Data = localStorage.getItem("ToDo");
 
 if (Data) {
@@ -93,17 +93,18 @@ else {
 
 function loadList(array) {
     array.forEach(function (item) {
-        addtoDo(item.name, item.id, item.done, item.trash)
+        addtoDo(item.name, item.id, item.done, item.trash);
         if (item.done == true) {
             document.getElementById(item.id).style.color = "chartreuse";
         }
-    
-        else if (item.done == false) {
-            document.getElementById(item.id).style.color = "black";
-          
+        if (item.trash == true) {
+            console.log(LIST);
+
         }
+
+
     });
-   
+
 }
 
 function addtoDo(toDo, id, done, trash) {
@@ -146,7 +147,7 @@ document.addEventListener("keyup", function (even) {
     }
 
 });
-// addtoDo("coffiee", 1,true, false);
+
 let count = 0;
 function completeToDo(id) {
 
@@ -156,7 +157,7 @@ function completeToDo(id) {
 
 
     if (LIST[id].done == true) {
-       
+
 
         document.getElementById(id).style.color = "chartreuse";
         localStorage.setItem("ToDo", JSON.stringify(LIST));
@@ -174,31 +175,26 @@ function completeToDo(id) {
 function removeToDo(id) {
 
 
-    // confirm(LIST[id].trash);
-    LIST[id].trash = true;// make it true but dont kno what to do next
-    // console.log(LIST[id].trash)
 
+    LIST[id].trash = true; // make it true but dont know what to do next
     document.getElementById(id).style.display = "none"
 
     if (LIST[id].trash == true) {
-       
-        
+        localStorage.removeItem(LIST[id]);
         localStorage.setItem("ToDo", JSON.stringify(LIST));
     }
-    else {
-        localStorage.setItem("ToDo", JSON.stringify(LIST));
-    }
+
 
 }
 function toDoEdit(id) {
     var edit = prompt('enter text');
-    LIST[id].name= edit;
+    if(edit!=null){
+    LIST[id].name = edit;
+    document.getElementById(`ele`+id).innerHTML=edit
     localStorage.setItem("ToDo", JSON.stringify(LIST));
-   edd(id);
-    
+        
+    }
+}
 
-}
-function edd(id)
-{
-    localStorage.setItem("ToDo", JSON.stringify(LIST));
-}
+
+
