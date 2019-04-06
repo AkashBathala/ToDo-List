@@ -77,12 +77,14 @@ const LINE_THROUGH = "del";
 const color = "chartreuse";
 let LIST, id;
 
-let data = localStorage.getItem("TODO");
+let Data = localStorage.getItem("ToDo");
 
-if (data) {
-    LIST = JSON.parse(data);
+if (Data) {
+    LIST = JSON.parse(Data);
     id = LIST.length;
     loadList(LIST);
+    
+    
 }
 else {
     LIST = [];
@@ -123,7 +125,8 @@ document.addEventListener("keyup", function (even) {
                 done: false,
                 trash: false
             });
-            localStorage.setItem = ("TODO", JSON.stringify(LIST));// storing data in local storage
+
+            localStorage.setItem("ToDo", JSON.stringify(LIST));// storing Data in local storage
 
 
             id++;
@@ -140,10 +143,11 @@ function completeToDo(id) {
 
 
     // console.log(
-         LIST[id].done = LIST[id].done ? false : true;//);
+    LIST[id].done = LIST[id].done ? false : true;
 
 
     if (LIST[id].done == true) {
+        
         document.getElementById(id).style.color = "chartreuse";
     }
 
@@ -164,11 +168,17 @@ function removeToDo(id) {
 
     document.getElementById(id).style.display = "none"
 
-    localStorage.setItem = ("TODO", JSON.stringify(LIST));
+    if (LIST[id].trash == true) {
+        localStorage.setItem  ("ToDo", JSON.stringify(LIST));
+    }
+    else{
+        localStorage.setItem("TODO", JSON.stringify(LIST));
+    }
+
 }
 function toDoEdit(id) {
     var edit = prompt('enter text');
-   
-    document.getElementById(`ele`+id).innerHTML=edit
-    
+
+    document.getElementById(`ele` + id).innerHTML = edit
+
 }
