@@ -21,7 +21,7 @@ else {
 function loadList(array) {
     array.forEach(function (item) {
         addtoDo(item.name, item.id, item.done, item.trash);
-        if (item.done == true) {
+        if (item.done == true && document.getElementById(item.id) ) {
             document.getElementById(item.id).style.color = "chartreuse";
         }
         if (item.trash == true) {
