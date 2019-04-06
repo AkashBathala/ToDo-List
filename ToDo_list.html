@@ -6,6 +6,13 @@
 
 
     <style>
+        #input {
+
+            margin-left: 50px;
+
+            background: rgba(240, 224, 155, 0.856);
+        }
+
         #bu3 {
             background: cornsilk;
             border: none;
@@ -13,6 +20,18 @@
 
         #st {
             width: 10cm;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 15px 50px;
+            background: #73AD21;
+            padding: 20px
+        }
+
+        #marg {
+
+            text-align: center;
+
+
 
         }
 
@@ -35,10 +54,12 @@
 <body>
     <div class="jumbotron">
 
-        <div id='st' style="background:cornsilk" class="container">
-            <h2>ToDo-List</h2>
+        <div id='st'  style="background:cornsilk;border: groove" class="container">
+            <div style="background-color:sandybrown;">
+                <h2 id="marg">ToDo-List</h2>
+            </div>
             <div>
-                <input type="text" style="background:cornsilk;  " placeholder="Add task here" id='input'>
+                <input type="text" placeholder="Add task here" id='input'>
 
 
             </div>
@@ -53,3 +74,6 @@
 </body>
 
 </html>
+
+
+
