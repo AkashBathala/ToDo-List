@@ -1,76 +1,3 @@
-// function task() {
-
-//     var x = document.getElementById('task').value;
-//     if (x.length == 0 || !x) {
-//         window.alert("please add sumthing")
-//     }
-//     else {
-//         var li = document.createElement('li');
-//         li.className = "list";
-//         li.name = "l1";
-
-//         var t = document.createTextNode(x);
-
-//         var butt1 = document.createElement('button');
-//         butt1.id = "bu";
-//         butt1.innerHTML = "&#10008";
-//         butt1.name = "butt1";
-
-//         var butt2 = document.createElement('button');
-//         butt2.id = "bu2";
-//         butt2.name = "butt2";
-//         butt2.innerHTML = "&#10004";
-
-//         var butt3 = document.createElement('button');
-//         butt3.id = "bu3";
-//         butt3.name = "butt3";
-//         butt3.innerHTML = "&#9998";
-
-//         li.appendChild(t);
-//         li.appendChild(butt2);
-//         li.appendChild(butt1);
-//         li.appendChild(butt3);
-
-//         var btlength = document.getElementsByName("butt1");
-//         var bt2length = document.getElementsByName('butt2');
-//         var bt3length = document.getElementsByName('butt3');
-//         document.getElementById("add").append(li);
-
-//         for (i = 0; i < bt2length.length; i++) {
-
-//             let count = 0;
-//             bt2length[i].onclick = function () {
-
-//                 if (count == 0) {
-//                     this.parentElement.style.color = "chartreuse";
-//                     count = 1;
-//                 }
-//                 else {
-//                     this.parentElement.style.color = "black";
-//                     count = 0;
-//                 }
-
-//             }
-
-//             btlength[i].onclick = function () {
-
-//                 this.parentElement.style.display = 'none';
-//                 window.alert("Task Removed Successfully");
-
-//             }
-
-//             bt3length[i].onclick = function () {
-
-//                 var edit = prompt('enter text');
-//                 var x = document.createTextNode(edit);
-
-//             }
-//         }
-// x.value="";
-//         console.log(li)
-
-//     }
-// }
 const list = document.getElementById('list');
 const input = document.getElementById('input');
 const LINE_THROUGH = "del";
@@ -98,7 +25,6 @@ function loadList(array) {
             document.getElementById(item.id).style.color = "chartreuse";
         }
         if (item.trash == true) {
-            console.log(LIST);
 
         }
 
@@ -110,7 +36,7 @@ function loadList(array) {
 function addtoDo(toDo, id, done, trash) {
 
     if (trash) { return; }
-    // const DONE = done ? CHECK : UNCHECK;
+
     const LINE = done ? LINE_THROUGH : "";
 
     const item = `<li class='item' id="${id}"  style="border-style: solid" >
@@ -152,7 +78,7 @@ let count = 0;
 function completeToDo(id) {
 
 
-    // console.log(
+
     LIST[id].done = LIST[id].done ? false : true;
 
 
@@ -169,30 +95,28 @@ function completeToDo(id) {
 
     }
 
-    //how to make it update?
+
 
 }
 function removeToDo(id) {
 
 
 
-    LIST[id].trash = true; // make it true but dont know what to do next
+    LIST[id].trash = true; // make it true to hide the element 
     document.getElementById(id).style.display = "none"
 
     if (LIST[id].trash == true) {
-        localStorage.removeItem(LIST[id]);
         localStorage.setItem("ToDo", JSON.stringify(LIST));
     }
-
 
 }
 function toDoEdit(id) {
     var edit = prompt('enter text');
-    if(edit!=null){
-    LIST[id].name = edit;
-    document.getElementById(`ele`+id).innerHTML=edit
-    localStorage.setItem("ToDo", JSON.stringify(LIST));
-        
+    if (edit != null) {
+        LIST[id].name = edit;
+        document.getElementById(`ele` + id).innerHTML = edit
+        localStorage.setItem("ToDo", JSON.stringify(LIST));
+
     }
 }
 
