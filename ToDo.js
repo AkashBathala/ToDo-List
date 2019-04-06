@@ -76,15 +76,15 @@ const input = document.getElementById('input');
 const LINE_THROUGH = "del";
 const color = "chartreuse";
 let LIST, id;
-
+let defcolor="blue";
 let Data = localStorage.getItem("ToDo");
 
 if (Data) {
     LIST = JSON.parse(Data);
     id = LIST.length;
     loadList(LIST);
-    
-    
+
+
 }
 else {
     LIST = [];
@@ -94,7 +94,16 @@ else {
 function loadList(array) {
     array.forEach(function (item) {
         addtoDo(item.name, item.id, item.done, item.trash)
+        if (item.done == true) {
+            document.getElementById(item.id).style.color = "chartreuse";
+        }
+    
+        else if (item.done == false) {
+            document.getElementById(item.id).style.color = "black";
+          
+        }
     });
+   
 }
 
 function addtoDo(toDo, id, done, trash) {
@@ -105,7 +114,7 @@ function addtoDo(toDo, id, done, trash) {
 
     const item = `<li class='item' id="${id}"  style="border-style: solid" >
                     <input id="bu2" onclick="completeToDo(${id})" job="complete"  type="button" value="&#10004">
-                    <i name="ele" id="ele${id}"> ${toDo}</i> 
+                    <i name="ele" style="color=${defcolor}" id="ele${id}"> ${toDo}</i> 
                      <input type="button" id="bu" onclick="removeToDo(${id})" value="&#10008">
                      <input type="button" id="bu" onclick="toDoEdit(${id})" value="&#9998">
                     </li>`
@@ -147,12 +156,15 @@ function completeToDo(id) {
 
 
     if (LIST[id].done == true) {
-        
+       
+
         document.getElementById(id).style.color = "chartreuse";
+        localStorage.setItem("ToDo", JSON.stringify(LIST));
     }
 
     else if (LIST[id].done == false) {
         document.getElementById(id).style.color = "black";
+        localStorage.setItem("ToDo", JSON.stringify(LIST));
 
     }
 
@@ -169,16 +181,24 @@ function removeToDo(id) {
     document.getElementById(id).style.display = "none"
 
     if (LIST[id].trash == true) {
-        localStorage.setItem  ("ToDo", JSON.stringify(LIST));
+       
+        
+        localStorage.setItem("ToDo", JSON.stringify(LIST));
     }
-    else{
-        localStorage.setItem("TODO", JSON.stringify(LIST));
+    else {
+        localStorage.setItem("ToDo", JSON.stringify(LIST));
     }
 
 }
 function toDoEdit(id) {
     var edit = prompt('enter text');
+    LIST[id].name= edit;
+    localStorage.setItem("ToDo", JSON.stringify(LIST));
+   edd(id);
+    
 
-    document.getElementById(`ele` + id).innerHTML = edit
-
+}
+function edd(id)
+{
+    localStorage.setItem("ToDo", JSON.stringify(LIST));
 }
