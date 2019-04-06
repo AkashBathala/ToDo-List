@@ -39,11 +39,11 @@ function addtoDo(toDo, id, done, trash) {
 
     const LINE = done ? LINE_THROUGH : "";
 
-    const item = `<li class='item' id="${id}"  style="border-style: solid" >
+    const item = ` <li class='item' id="${id}"  style=" margin-left: auto; margin-right: auto;  border-style:  solid; border-radius: 8px;" >
                     <input id="bu2" onclick="completeToDo(${id})" job="complete"  type="button" value="&#10004">
                     <i name="ele" style="color=${defcolor}" id="ele${id}"> ${toDo}</i> 
                      <input type="button" id="bu" onclick="removeToDo(${id})" value="&#10008">
-                     <input type="button" id="bu" onclick="toDoEdit(${id})" value="&#9998">
+                     <input type="button" id="bu3" onclick="toDoEdit(${id})" value="&#9998">
                     </li>`
 
     const position = "beforeend";
