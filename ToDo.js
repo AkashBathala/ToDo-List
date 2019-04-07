@@ -39,7 +39,8 @@ function addtoDo(toDo, id, done, trash) {
 
     const LINE = done ? LINE_THROUGH : "";
 
-    const item = ` <li class='item' id="id${id}"  style=" margin-left: auto; margin-right: auto;  border-style:  solid; border-radius: 8px;" >
+    const item = ` <li class='item' id="id${id}"  style=" margin-left: auto; margin-right: auto;  border-style: 
+     solid; border-radius: 8px;" >
                     <input id="bu2" onclick="completeToDo(${id})" job="complete"  type="button" value="&#10004">
                     <i name="ele" style="color=${defcolor}" id="ele${id}"> ${toDo}</i> 
                      <input type="button" id="bu" onclick="removeToDo(${id})" value="&#10008">
@@ -103,7 +104,17 @@ function removeToDo(id) {
 
 
     LIST[id].trash = true; // make it true to hide the element 
-    document.getElementById(`id${id}`).style.display = "none"
+    document.getElementById(`id${id}`).style=
+    `
+    
+    margin-left: auto; margin-right: auto;  border-style:  solid; border-radius: 8px;
+    opacity:0;
+       
+    transition:  2s;
+    
+    `
+    
+    // document.getElementById(`id${id}`).style="displaynone";
 
     if (LIST[id].trash == true) {
         localStorage.setItem("ToDo", JSON.stringify(LIST));

@@ -6,6 +6,13 @@
 
 
     <style>
+        @keyframes mymove {
+            100% {
+                opacity: 0
+            }
+
+        }
+
         #input {
 
             margin-left: 50px;
@@ -24,13 +31,23 @@
             margin-right: auto;
             border-radius: 15px 50px;
             background: #73AD21;
-            padding: 20px
+            padding: 20px;
+            
+            
+        }
+        
+
+
+        #marg:hover {
+            
+            background:thistle;
         }
 
         #marg {
-
+            
+            
             text-align: center;
-
+            transition:  2s;
 
 
         }
@@ -54,7 +71,7 @@
 <body>
     <div class="jumbotron">
 
-        <div id='st'  style="background:cornsilk;border: groove" class="container">
+        <div id='st' style="background:cornsilk; border: groove; transition:  2s;"  >
             <div style="background-color:sandybrown;">
                 <h2 id="marg">ToDo-List</h2>
             </div>
@@ -74,6 +91,3 @@
 </body>
 
 </html>
-
-
-
